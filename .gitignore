@@ -1,0 +1,43 @@
+# Virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Logs and outputs
+*.log
+runs/
+
+# Backup code folders
+Backup_codes/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# System files
+.DS_Store
+
+# Environment and config
+.env
+.python-version
+
+# Dataset
+Data/
+
+# Saved models
+checkpoints/
+
+# Output embeddings
+outputs/
+
+# local editor preference
+.vscode/
+
+# Manuscript files
+CoCuFeNiZn_manuscript_v4.docx
+
+# Manuscript dataset package
+manuscript_data/
+

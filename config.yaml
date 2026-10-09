@@ -1,0 +1,53 @@
+data:
+  root_path: manuscript_data
+  train_temperature_min: 300
+  train_temperature_max: 500
+  composition_ids: [9]
+  mc_step: 50000
+
+paths:
+  output_dir: "outputs"
+  checkpoint_dir: "checkpoints"
+  run_dir: "runs"
+
+data_initialization:
+  crystal: "fcc"
+  num_elements: 5
+  bond_energies:
+    "0-0": -34.00 # Ni
+    "1-1": -3.70 # Zn
+    "2-2": -21.17 # Co
+    "3-3": -33.50 # Cu
+    "4-4": -19.67 # Fe
+    "0-1": -20.70
+    "0-2": -27.51
+    "0-3": -34.01
+    "0-4": -27.88
+    "1-2": -12.44
+    "1-3": -19.61
+    "1-4": -12.34
+    "2-3": -26.45
+    "2-4": -21.22
+    "3-4": -26.27
+
+patch:
+  random_crop: true
+  patch_size: 7
+
+model:
+  num_features: 5
+  hidden_dim: 32 # dimension of global graph representation = hidden_dim * num_gc_layers (# Per-layer hidden dimension; final graph embedding uses concatenated layer outputs.)
+  num_gc_layers: 2
+  attention_temperature: 3
+
+train:
+  optimizer: Adam
+  epochs: 30
+  learning_rate: 0.0001
+  batch_size: 50
+
+inference:
+  batch_size: 1
+
+experiment:
+  seed: 1000
